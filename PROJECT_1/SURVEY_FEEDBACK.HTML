@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Feedback Survey</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #f5f7fa;
+            color: #2c3e50;
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 12px;
+        }
+
+        .subtitle {
+            font-size: 15px;
+            color: #64748b;
+            font-weight: 400;
+        }
+
+        .form-card {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            padding: 48px;
+        }
+
+        section {
+            margin-bottom: 36px;
+        }
+
+        section:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: #334155;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 12px 16px;
+            font-size: 14px;
+            font-family: inherit;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            background-color: #ffffff;
+            color: #1a202c;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        fieldset {
+            border: none;
+            padding: 0;
+        }
+
+        legend {
+            font-size: 14px;
+            font-weight: 500;
+            color: #334155;
+            margin-bottom: 12px;
+        }
+
+        .radio-group,
+        .checkbox-group {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .radio-option,
+        .checkbox-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: #3b82f6;
+        }
+
+        .radio-option label,
+        .checkbox-option label {
+            margin: 0;
+            cursor: pointer;
+            font-weight: 400;
+            font-size: 14px;
+        }
+
+        .rating-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .rating-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .rating-option input[type="radio"] {
+            margin: 0;
+        }
+
+        .rating-label {
+            font-size: 13px;
+            color: #64748b;
+            font-weight: 400;
+        }
+
+        .submit-section {
+            margin-top: 40px;
+            padding-top: 32px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 14px 24px;
+            font-size: 15px;
+            font-weight: 600;
+            font-family: inherit;
+            color: #ffffff;
+            background-color: #3b82f6;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #2563eb;
+        }
+
+        button[type="submit"]:active {
+            background-color: #1d4ed8;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 32px;
+            font-size: 13px;
+            color: #94a3b8;
+        }
+
+        .optional-tag {
+            font-size: 12px;
+            color: #94a3b8;
+            font-weight: 400;
+            margin-left: 4px;
+        }
+
+        @media (max-width: 640px) {
+            .form-card {
+                padding: 32px 24px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .rating-group {
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Customer Feedback Survey</h1>
+            <p class="subtitle">Your feedback helps us improve our services and better serve you</p>
+        </header>
+
+        <div class="form-card">
+            <form action="#" method="post">
+                <section>
+                    <h2 class="section-title">Contact Information</h2>
+                    
+                    <div class="form-group">
+                        <label for="name">Full Name <span class="optional-tag">(optional)</span></label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address <span class="optional-tag">(optional)</span></label>
+                        <input type="email" id="email" name="email" placeholder="your.email@example.com">
+                    </div>
+                </section>
+
+                <section>
+                    <h2 class="section-title">Service Evaluation</h2>
+                    
+                    <fieldset class="form-group">
+                        <legend>How would you rate our service?</legend>
+                        <div class="rating-group">
+                            <div class="rating-option">
+                                <input type="radio" id="rating1" name="rating" value="1">
+                                <label for="rating1" class="rating-label">1 - Poor</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="rating2" name="rating" value="2">
+                                <label for="rating2" class="rating-label">2 - Fair</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="rating3" name="rating" value="3">
+                                <label for="rating3" class="rating-label">3 - Good</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="rating4" name="rating" value="4">
+                                <label for="rating4" class="rating-label">4 - Very Good</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="rating5" name="rating" value="5">
+                                <label for="rating5" class="rating-label">5 - Excellent</label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <legend>Overall satisfaction with your experience</legend>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="sat-very-dissatisfied" name="satisfaction" value="very-dissatisfied">
+                                <label for="sat-very-dissatisfied">Very Dissatisfied</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="sat-dissatisfied" name="satisfaction" value="dissatisfied">
+                                <label for="sat-dissatisfied">Dissatisfied</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="sat-neutral" name="satisfaction" value="neutral">
+                                <label for="sat-neutral">Neutral</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="sat-satisfied" name="satisfaction" value="satisfied">
+                                <label for="sat-satisfied">Satisfied</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="sat-very-satisfied" name="satisfaction" value="very-satisfied">
+                                <label for="sat-very-satisfied">Very Satisfied</label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <legend>Would you recommend us to others?</legend>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="recommend-yes" name="recommend" value="yes">
+                                <label for="recommend-yes">Yes</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="recommend-no" name="recommend" value="no">
+                                <label for="recommend-no">No</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </section>
+
+                <section>
+                    <h2 class="section-title">Additional Feedback</h2>
+                    
+                    <div class="form-group">
+                        <label for="feedback">Please share your experience with us</label>
+                        <textarea id="feedback" name="feedback" placeholder="Tell us about your experience, what went well, or what could be improved..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="suggestions">Suggestions for improvement</label>
+                        <textarea id="suggestions" name="suggestions" placeholder="Share any ideas or suggestions you have for us..."></textarea>
+                    </div>
+                </section>
+
+                <div class="submit-section">
+                    <button type="submit">Submit Feedback</button>
+                </div>
+            </form>
+        </div>
+
+        <footer>
+            <p>Thank you for taking the time to provide your feedback</p>
+        </footer>
+    </div>
+</body>
+</html>
